@@ -1,9 +1,11 @@
-import { ButtonWrapper } from "./styledComponents";
+import { StyledButtonWrapper } from "./styledComponents";
 import { ButtonControllerOutputProps } from "./types";
 
 function View(props: ButtonControllerOutputProps): JSX.Element {
     const { children, loading, ...buttonProps } = props;
-    return <ButtonWrapper {...buttonProps}>{children}</ButtonWrapper>;
+    return (
+        <StyledButtonWrapper {...buttonProps}>{children}</StyledButtonWrapper>
+    );
 }
 
 export default View;
