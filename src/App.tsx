@@ -1,11 +1,8 @@
 import "./common/styles/globals.css";
+import { AppRouter } from "./router/app/AppRouter";
 
 function App() {
-    return (
-        <div className="App">
-            <p>Bewe</p>
-        </div>
-    );
+    return <AppRouter />;
 }
 
 export default App;

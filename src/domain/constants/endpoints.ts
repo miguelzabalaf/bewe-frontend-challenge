@@ -1,5 +1,5 @@
-const authPath = '/auth';
-const linksPath = '/links';
+export const authPath = '/auth';
+export const linksPath = '/links';
 
 export const endpoints = {
   auth: {
