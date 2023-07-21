@@ -9,7 +9,7 @@ export enum TypographySize {
 export enum TypographyWeight {
     BOLD = 'bold',
     NORMAL = 'normal',
-    MEDIUM = '500',
+    MEDIUM = '600',
 }
 
 export enum TypographyAlign {

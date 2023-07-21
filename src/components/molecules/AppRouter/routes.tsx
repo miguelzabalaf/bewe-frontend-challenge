@@ -4,6 +4,7 @@ import { authPath } from "../../../domain/constants/endpoints";
 import Login from "../../../pages/auth/Login";
 import SingUp from "../../../pages/auth/SingUp";
 import { ExampleScreen } from "../../../pages/example";
+import Home from "../../../pages/dashboard/Home";
 
 interface Route {
     path: string;
@@ -24,7 +25,7 @@ export const routes: Route[] = [
     },
     {
         path: "/",
-        component: ExampleScreen,
+        component: Home,
         isPrivate: true,
     },
     {

@@ -5,4 +5,5 @@ export const colors = {
     border: '#B7C0C9',
     white: '#FFFFFF',
     error: '#FF5C6C',
+    hover: 'rgba(0, 0, 0, 0.05)'
 };

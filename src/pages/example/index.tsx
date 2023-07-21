@@ -7,11 +7,18 @@ import {
 } from "../../components/atoms/Typography/types";
 import WhiteSpace from "../../components/atoms/WhiteSpace";
 import { WhiteSpaceVariant } from "../../components/atoms/WhiteSpace/types";
+import ProfileInfo from "../../components/molecules/ProfileInfo";
 import Screen from "../../components/organisms/Screen";
 
 export function ExampleScreen() {
     return (
         <Screen>
+            <br />
+            <ProfileInfo
+                name={"Miguel Zabala"}
+                email={"zabalafmiguel@hotmail.com"}
+            />
+            <ProfileInfo name={"Miguel Zabala"} hideEditAction />
             <Typography
                 size={TypographySize.H1}
                 weight={TypographyWeight.BOLD}
