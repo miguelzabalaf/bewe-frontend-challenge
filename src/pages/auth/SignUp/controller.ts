@@ -17,9 +17,9 @@ function useController(props: SignUpProps): SignUpControllerOutputProps {
 
     const { register, handleSubmit, formState: { errors, isValid: isValidForm } } = useForm<SignUpFormProps>({
         defaultValues: {
-            name: '',
-            email: '',
-            password: ''
+            name: 'Miguel Zabala',
+            email: 'zabalafmiguel@hotmail.com',
+            password: '123456'
         },
         resolver: yupResolver(signUpSchema) as any,
         mode: 'all'
