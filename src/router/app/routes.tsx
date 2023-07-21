@@ -2,7 +2,8 @@ import { ComponentType } from "react";
 import { authPath } from "../../domain/constants/endpoints";
 import { ExampleScreen } from "../../pages/example";
 import { DefaultParams, RouteComponentProps } from "wouter";
-import Login from "../../pages/auth/login";
+import Login from "../../pages/auth/Login";
+import SingUp from "../../pages/auth/SingUp";
 
 interface Route {
     path: string;
@@ -17,8 +18,8 @@ export const routes: Route[] = [
         isPrivate: false,
     },
     {
-        path: `${authPath}/singin`,
-        component: ExampleScreen,
+        path: `${authPath}/singup`,
+        component: SingUp,
         isPrivate: false,
     },
     {

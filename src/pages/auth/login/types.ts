@@ -1,4 +1,4 @@
-import { FormProps } from './../../../common/types';
+import { FormProps } from '../../../common/types';
 import { AnySchema } from "yup";
 
 export interface LoginProps {

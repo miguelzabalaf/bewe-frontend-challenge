@@ -6,7 +6,7 @@ export const StyledScreenWrapper = styled.div`
     max-width: 900px;
     margin: 0 auto;
     background-color: red;
-    height: 100dvh;
+    height: 100%;
     background-color: ${ colors.white }
 `;
 

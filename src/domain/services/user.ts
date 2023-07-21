@@ -3,8 +3,8 @@ import { LoginParams, SignInParams } from "../reposiories/user";
 import { endpoints } from "../constants/endpoints";
 import { trackPromise } from "react-promise-tracker";
 
-export function singInService(params: SignInParams) {
-    const request = axios.post(endpoints.auth.user.singIn, { data: { ...params } });
+export function singUpService(params: SignInParams) {
+    const request = axios.post(endpoints.auth.user.singUp, { data: { ...params } });
     return trackPromise(request);
 }
 

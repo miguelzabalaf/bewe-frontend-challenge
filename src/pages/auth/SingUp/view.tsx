@@ -1,9 +1,10 @@
 import AuthHero from "../../../components/molecules/AuthHero";
 import LoginForm from "../../../components/molecules/LoginForm";
+import SingUpForm from "../../../components/molecules/SingUpForm";
 import Screen from "../../../components/organisms/Screen";
-import { LoginControllerOutputProps } from "./types";
+import { SingUpControllerOutputProps } from "./types";
 
-function View(props: LoginControllerOutputProps): JSX.Element {
+function View(props: SingUpControllerOutputProps): JSX.Element {
     const {
         register,
         assignInputName,
@@ -14,8 +15,8 @@ function View(props: LoginControllerOutputProps): JSX.Element {
     } = props;
     return (
         <Screen>
-            <AuthHero title={"Login"} />
-            <LoginForm
+            <AuthHero title={"Sing Up"} />
+            <SingUpForm
                 onSubmit={onSubmit}
                 handleSubmit={handleSubmit}
                 register={register}

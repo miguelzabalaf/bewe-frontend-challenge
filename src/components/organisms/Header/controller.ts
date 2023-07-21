@@ -13,8 +13,8 @@ function useController(props: HeaderProps): HeaderControllerOutputProps {
         setLocation(`${ authPath }/login`);
     }
 
-    function onSingin() {
-        setLocation(`${ authPath }/singin`);
+    function onSingUp() {
+        setLocation(`${ authPath }/singup`);
     }
 
     // function onLogout() {
@@ -27,7 +27,7 @@ function useController(props: HeaderProps): HeaderControllerOutputProps {
 
     function handleAction() {
         if (isLoginPage) {
-            onSingin();
+            onSingUp();
         } else {
             onLogin();
         }
