@@ -4,9 +4,15 @@ import { PayloadAction } from '@reduxjs/toolkit';
 
 export function profileActions() {
     return {
-        onChangeProfile: function (payload: User): PayloadAction<User> {
+        onChangeUser: function (payload: User): PayloadAction<User> {
             return {
-                type: types.CHANGE_PROFILE,
+                type: types.CHANGE_USER,
+                payload
+            };
+        },
+        onChangeToken: function (payload: string): PayloadAction<string> {
+            return {
+                type: types.CHANGE_TOKEN,
                 payload
             };
         }

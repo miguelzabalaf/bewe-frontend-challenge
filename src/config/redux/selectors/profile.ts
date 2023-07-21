@@ -3,10 +3,22 @@ import createSelector from "../helpers/createSelector";
 
 export function profileSelectors() {
     return {
-        getProfile: function () {
+        getUser: function () {
             return createSelector(
                 (state: StoreState) => state.profile,
-                (profile) => profile
+                (profile) => profile.user
+            );
+        },
+        getToken: function () {
+            return createSelector(
+                (state: StoreState) => state.profile,
+                (profile) => profile.auth.token
+            );
+        },
+        isAuthenticated: function () {
+            return createSelector(
+                (state: StoreState) => state.profile,
+                (profile) => !!profile.auth.token
             );
         }
     };

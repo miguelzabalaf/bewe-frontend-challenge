@@ -1,14 +1,23 @@
 import { User } from "../../../../domain/entities/user";
 
 
-export interface UserInitialState extends User {
-
+export interface UserInitialState {
+    user: User;
+    auth: {
+        token: string;
+    };
 }
 
 export const initialState: UserInitialState = {
-    id: 0,
-    name: '',
-    email: '',
-    password: '',
-    image: ''
+    user: {
+        id: 0,
+        name: '',
+        email: '',
+        password: '',
+        image: ''
+    },
+    auth: {
+        token: '',
+    }
+
 };
