@@ -1,9 +1,9 @@
 import { ComponentType } from "react";
-import { authPath } from "../../domain/constants/endpoints";
-import { ExampleScreen } from "../../pages/example";
 import { DefaultParams, RouteComponentProps } from "wouter";
-import Login from "../../pages/auth/Login";
-import SingUp from "../../pages/auth/SingUp";
+import { authPath } from "../../../domain/constants/endpoints";
+import Login from "../../../pages/auth/Login";
+import SingUp from "../../../pages/auth/SingUp";
+import { ExampleScreen } from "../../../pages/example";
 
 interface Route {
     path: string;

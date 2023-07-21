@@ -1,10 +1,10 @@
 import { Redirect, Route, Switch } from "wouter";
-import PrivateRoute from "../../components/atoms/PrivateRoute";
 import _ from "lodash";
 import { routes } from "./routes";
-import { authPath } from "../../domain/constants/endpoints";
+import PrivateRoute from "../../atoms/PrivateRoute";
+import { authPath } from "../../../domain/constants/endpoints";
 
-export function AppRouter() {
+function View(): JSX.Element {
     return (
         <Switch>
             {_.map(routes, (route, idx) => {
@@ -22,3 +22,5 @@ export function AppRouter() {
         </Switch>
     );
 }
+
+export default View;
