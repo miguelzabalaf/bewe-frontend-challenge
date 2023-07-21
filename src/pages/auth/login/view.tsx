@@ -12,12 +12,16 @@ function View(props: LoginControllerOutputProps): JSX.Element {
         hasInputError,
         onSubmit,
         handleSubmit,
+        loading,
+        isValidForm,
     } = props;
     return (
         <Screen>
             <ContentWithPadding>
                 <AuthHero title={"Login"} />
                 <LoginForm
+                    loading={loading}
+                    isValidForm={isValidForm}
                     onSubmit={onSubmit}
                     handleSubmit={handleSubmit}
                     register={register}

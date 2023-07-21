@@ -14,7 +14,7 @@ function useController(props: HeaderProps): HeaderControllerOutputProps {
     }
 
     function onSingUp() {
-        setLocation(`${ authPath }/singup`);
+        setLocation(`${ authPath }/signup`);
     }
 
     // function onLogout() {

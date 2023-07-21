@@ -3,13 +3,14 @@ import { ProfileControllerOutputProps, ProfileFormKeys, ProfileFormProps, Profil
 import { yupResolver } from '@hookform/resolvers/yup';
 import { profileSchema } from './schemas';
 import { useLocation } from 'wouter';
+import { usePromiseTracker } from 'react-promise-tracker';
 
 
 function useController(props: ProfileProps): ProfileControllerOutputProps {
 
     const [, setLocation] = useLocation();
 
-    const { register, handleSubmit, formState: { errors } } = useForm<ProfileFormProps>({
+    const { register, handleSubmit, formState: { errors, isValid: isValidForm } } = useForm<ProfileFormProps>({
         defaultValues: {
             name: '',
             email: '',
@@ -18,6 +19,8 @@ function useController(props: ProfileProps): ProfileControllerOutputProps {
         resolver: yupResolver(profileSchema) as any,
         mode: 'all'
     });
+
+    const { promiseInProgress: loading } = usePromiseTracker();
 
     function hasInputError(inputName: ProfileFormKeys) {
         return errors[inputName] !== undefined;
@@ -47,6 +50,8 @@ function useController(props: ProfileProps): ProfileControllerOutputProps {
         assignInputName,
         getInputErrorMessage,
         handleGoHome,
+        isValidForm,
+        loading,
         ...props
     };
 }

@@ -13,6 +13,8 @@ function View(props: SingUpFormProps): JSX.Element {
         hasInputError,
         onSubmit,
         handleSubmit,
+        isValidForm,
+        loading,
     } = props;
     return (
         <StyledLoginFormWrapper onSubmit={handleSubmit(onSubmit)}>
@@ -25,6 +27,7 @@ function View(props: SingUpFormProps): JSX.Element {
                 hasError={hasInputError("name")}
                 placeholder={"Jeff Brown Example"}
                 register={register}
+                disabled={loading}
             />
             <WhiteSpace space={30} />
             <InputField
@@ -35,6 +38,7 @@ function View(props: SingUpFormProps): JSX.Element {
                 hasError={hasInputError("email")}
                 placeholder={"jeff.brown@example.com"}
                 register={register}
+                disabled={loading}
             />
             <WhiteSpace space={30} />
             <InputField
@@ -45,9 +49,14 @@ function View(props: SingUpFormProps): JSX.Element {
                 hasError={hasInputError("password")}
                 placeholder={"******"}
                 register={register}
+                disabled={loading}
             />
             <WhiteSpace space={50} />
-            <Button type={"submit"} onClick={handleSubmit(onSubmit)}>
+            <Button
+                type={"submit"}
+                onClick={handleSubmit(onSubmit)}
+                disabled={loading || !isValidForm}
+            >
                 Sing Up
             </Button>
         </StyledLoginFormWrapper>

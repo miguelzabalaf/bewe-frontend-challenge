@@ -2,6 +2,8 @@ import { UseFormHandleSubmit, UseFormRegister } from "react-hook-form";
 
 export interface FormData {
     register: UseFormRegister<any>;
+    loading: boolean;
+    isValidForm: boolean;
 }
 
 export interface FormMethods {

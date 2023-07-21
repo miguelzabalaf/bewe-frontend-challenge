@@ -14,6 +14,8 @@ function View(props: HomeControllerOutputProps): JSX.Element {
         hasInputError,
         onSubmit,
         handleSubmit,
+        isValidForm,
+        loading,
     } = props;
     return (
         <Screen>
@@ -23,6 +25,8 @@ function View(props: HomeControllerOutputProps): JSX.Element {
                     email={"zabalafmiguel@hotmail.com"}
                 />
                 <LinkForm
+                    loading={loading}
+                    isValidForm={isValidForm}
                     onSubmit={onSubmit}
                     handleSubmit={handleSubmit}
                     register={register}

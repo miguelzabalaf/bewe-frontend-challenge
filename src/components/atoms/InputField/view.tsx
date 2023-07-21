@@ -7,8 +7,16 @@ import {
 import { InputFieldControllerOutputProps } from "./types";
 
 function View(props: InputFieldControllerOutputProps): JSX.Element {
-    const { label, type, placeholder, register, name, hasError, errorMessage } =
-        props;
+    const {
+        label,
+        type,
+        placeholder,
+        register,
+        name,
+        hasError,
+        errorMessage,
+        ...inputProps
+    } = props;
     return (
         <StyledInputFieldWrapper>
             {label && (
@@ -18,6 +26,7 @@ function View(props: InputFieldControllerOutputProps): JSX.Element {
             )}
             <StyledInputFieldComponent
                 {...register(name)}
+                {...inputProps}
                 type={type}
                 id={`${name}-inputText`}
                 placeholder={placeholder}

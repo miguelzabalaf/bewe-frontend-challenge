@@ -2,11 +2,12 @@ import { useForm } from 'react-hook-form';
 import { HomeControllerOutputProps, HomeFormKeys, HomeFormProps, HomeProps } from './types';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { linkSchema } from './schemas';
+import { usePromiseTracker } from 'react-promise-tracker';
 
 
 function useController(props: HomeProps): HomeControllerOutputProps {
 
-    const { register, handleSubmit, formState: { errors } } = useForm<HomeFormProps>({
+    const { register, handleSubmit, formState: { errors, isValid: isValidForm } } = useForm<HomeFormProps>({
         defaultValues: {
             url: '',
             name: ''
@@ -14,6 +15,8 @@ function useController(props: HomeProps): HomeControllerOutputProps {
         resolver: yupResolver(linkSchema) as any,
         mode: 'all'
     });
+
+    const { promiseInProgress: loading } = usePromiseTracker();
 
     function hasInputError(inputName: HomeFormKeys) {
         return errors[inputName] !== undefined;
@@ -38,6 +41,8 @@ function useController(props: HomeProps): HomeControllerOutputProps {
         hasInputError,
         assignInputName,
         getInputErrorMessage,
+        isValidForm,
+        loading,
         ...props
     };
 }

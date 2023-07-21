@@ -10,8 +10,7 @@ function View(): JSX.Element {
             {_.map(routes, (route, idx) => {
                 const { path, component, isPrivate } = route;
                 return isPrivate ? (
-                    // <PrivateRoute key={idx} path={path} component={component} />
-                    <Route key={idx} path={path} component={component} />
+                    <PrivateRoute key={idx} path={path} component={component} />
                 ) : (
                     <Route key={idx} path={path} component={component} />
                 );

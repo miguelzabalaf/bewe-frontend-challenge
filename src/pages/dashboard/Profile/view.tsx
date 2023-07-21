@@ -15,6 +15,8 @@ function View(props: ProfileControllerOutputProps): JSX.Element {
         onSubmit,
         handleSubmit,
         handleGoHome,
+        isValidForm,
+        loading,
     } = props;
     return (
         <Screen>
@@ -23,6 +25,8 @@ function View(props: ProfileControllerOutputProps): JSX.Element {
                 <WhiteSpace space={40} />
                 <ProfileInfo name={"Miguel Zabala"} hideEditAction />
                 <ProfileForm
+                    loading={loading}
+                    isValidForm={isValidForm}
                     onSubmit={onSubmit}
                     handleSubmit={handleSubmit}
                     register={register}

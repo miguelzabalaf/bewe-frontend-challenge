@@ -2,7 +2,7 @@ import { ComponentType } from "react";
 import { DefaultParams, RouteComponentProps } from "wouter";
 import { authPath } from "../../../domain/constants/endpoints";
 import Login from "../../../pages/auth/Login";
-import SingUp from "../../../pages/auth/SingUp";
+import SignUp from "../../../pages/auth/SignUp";
 import Home from "../../../pages/dashboard/Home";
 import Profile from "../../../pages/dashboard/Profile";
 
@@ -19,8 +19,8 @@ export const routes: Route[] = [
         isPrivate: false,
     },
     {
-        path: `${authPath}/singup`,
-        component: SingUp,
+        path: `${authPath}/signup`,
+        component: SignUp,
         isPrivate: false,
     },
     {

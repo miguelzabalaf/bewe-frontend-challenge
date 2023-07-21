@@ -4,7 +4,7 @@ import { useEffect } from "react";
 export function useInterceptor() {
     function handleRequestSuccess(request: any): InternalAxiosRequestConfig {
         request.headers = {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json; charset=utf-8',
             'Accept': 'application/json',
         };
         return request;

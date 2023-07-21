@@ -4,7 +4,7 @@ export const linksPath = '/links';
 export const endpoints = {
   auth: {
     user: {
-      singUp: `${ authPath }/singup`,
+      signUp: `${ authPath }/signup`,
       login: `${ authPath }/login`,
     },
   },
