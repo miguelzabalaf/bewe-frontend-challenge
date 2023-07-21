@@ -1,3 +1,4 @@
+import ContentWithPadding from "../../../components/atoms/ContentWithPadding";
 import AuthHero from "../../../components/molecules/AuthHero";
 import LoginForm from "../../../components/molecules/LoginForm";
 import Screen from "../../../components/organisms/Screen";
@@ -14,15 +15,17 @@ function View(props: LoginControllerOutputProps): JSX.Element {
     } = props;
     return (
         <Screen>
-            <AuthHero title={"Login"} />
-            <LoginForm
-                onSubmit={onSubmit}
-                handleSubmit={handleSubmit}
-                register={register}
-                assignInputName={assignInputName}
-                hasInputError={hasInputError}
-                getInputErrorMessage={getInputErrorMessage}
-            />
+            <ContentWithPadding>
+                <AuthHero title={"Login"} />
+                <LoginForm
+                    onSubmit={onSubmit}
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    assignInputName={assignInputName}
+                    hasInputError={hasInputError}
+                    getInputErrorMessage={getInputErrorMessage}
+                />
+            </ContentWithPadding>
         </Screen>
     );
 }

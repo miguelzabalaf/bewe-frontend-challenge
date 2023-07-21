@@ -1,3 +1,6 @@
+import { StyledContentWithPaddingWrapper } from "../../../components/atoms/ContentWithPadding/styledComponents";
+import LinkItem from "../../../components/atoms/LinkItem";
+import WhiteSpace from "../../../components/atoms/WhiteSpace";
 import LinkForm from "../../../components/molecules/LinkForm";
 import ProfileInfo from "../../../components/molecules/ProfileInfo";
 import Screen from "../../../components/organisms/Screen";
@@ -14,17 +17,40 @@ function View(props: HomeControllerOutputProps): JSX.Element {
     } = props;
     return (
         <Screen>
-            <ProfileInfo
-                name={"Miguel Zabala"}
-                email={"zabalafmiguel@hotmail.com"}
+            <StyledContentWithPaddingWrapper>
+                <ProfileInfo
+                    name={"Miguel Zabala"}
+                    email={"zabalafmiguel@hotmail.com"}
+                />
+                <LinkForm
+                    onSubmit={onSubmit}
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    assignInputName={assignInputName}
+                    hasInputError={hasInputError}
+                    getInputErrorMessage={getInputErrorMessage}
+                />
+            </StyledContentWithPaddingWrapper>
+            <WhiteSpace space={35} />
+            <LinkItem
+                id={1}
+                url="www.google.com"
+                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
             />
-            <LinkForm
-                onSubmit={onSubmit}
-                handleSubmit={handleSubmit}
-                register={register}
-                assignInputName={assignInputName}
-                hasInputError={hasInputError}
-                getInputErrorMessage={getInputErrorMessage}
+            <LinkItem
+                id={1}
+                url="www.google.com"
+                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            />
+            <LinkItem
+                id={1}
+                url="www.google.com"
+                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+            />
+            <LinkItem
+                id={1}
+                url="www.google.com"
+                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
             />
         </Screen>
     );

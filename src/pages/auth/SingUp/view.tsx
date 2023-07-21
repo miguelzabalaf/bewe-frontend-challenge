@@ -1,3 +1,4 @@
+import { StyledContentWithPaddingWrapper } from "../../../components/atoms/ContentWithPadding/styledComponents";
 import AuthHero from "../../../components/molecules/AuthHero";
 import SingUpForm from "../../../components/molecules/SingUpForm";
 import Screen from "../../../components/organisms/Screen";
@@ -14,15 +15,17 @@ function View(props: SingUpControllerOutputProps): JSX.Element {
     } = props;
     return (
         <Screen>
-            <AuthHero title={"Sing Up"} />
-            <SingUpForm
-                onSubmit={onSubmit}
-                handleSubmit={handleSubmit}
-                register={register}
-                assignInputName={assignInputName}
-                hasInputError={hasInputError}
-                getInputErrorMessage={getInputErrorMessage}
-            />
+            <StyledContentWithPaddingWrapper>
+                <AuthHero title={"Sing Up"} />
+                <SingUpForm
+                    onSubmit={onSubmit}
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    assignInputName={assignInputName}
+                    hasInputError={hasInputError}
+                    getInputErrorMessage={getInputErrorMessage}
+                />
+            </StyledContentWithPaddingWrapper>
         </Screen>
     );
 }

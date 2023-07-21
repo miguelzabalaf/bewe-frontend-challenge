@@ -1,3 +1,4 @@
+import ContentWithPadding from "../../../components/atoms/ContentWithPadding";
 import WhiteSpace from "../../../components/atoms/WhiteSpace";
 import NavTop from "../../../components/molecules/NavTop";
 import ProfileForm from "../../../components/molecules/ProfileForm";
@@ -17,17 +18,19 @@ function View(props: ProfileControllerOutputProps): JSX.Element {
     } = props;
     return (
         <Screen>
-            <NavTop title={"Profile"} handleGoBack={handleGoHome} />
-            <WhiteSpace space={40} />
-            <ProfileInfo name={"Miguel Zabala"} hideEditAction />
-            <ProfileForm
-                onSubmit={onSubmit}
-                handleSubmit={handleSubmit}
-                register={register}
-                assignInputName={assignInputName}
-                hasInputError={hasInputError}
-                getInputErrorMessage={getInputErrorMessage}
-            />
+            <ContentWithPadding>
+                <NavTop title={"Profile"} handleGoBack={handleGoHome} />
+                <WhiteSpace space={40} />
+                <ProfileInfo name={"Miguel Zabala"} hideEditAction />
+                <ProfileForm
+                    onSubmit={onSubmit}
+                    handleSubmit={handleSubmit}
+                    register={register}
+                    assignInputName={assignInputName}
+                    hasInputError={hasInputError}
+                    getInputErrorMessage={getInputErrorMessage}
+                />
+            </ContentWithPadding>
         </Screen>
     );
 }
