@@ -1,4 +1,5 @@
 import { Link } from "../entities/link";
+import { LinkCreated, LinkDeleted, LinkRegistered, LinksLoaded } from "../models/link";
 
 export interface AddLinkParams {
     name: Link['name'];
@@ -10,7 +11,7 @@ export interface DeleteLinkParams {
 }
 
 export interface LinkRepository {
-    addLink(params: AddLinkParams): Promise<void>;
-    getLinks(): Promise<Link[]>;
-    deleteLink(params: DeleteLinkParams): Promise<void>;
+    addLink(params: AddLinkParams): Promise<LinkCreated>;
+    getLinks(): Promise<LinksLoaded>;
+    deleteLink(params: DeleteLinkParams): Promise<LinkDeleted>;
 }

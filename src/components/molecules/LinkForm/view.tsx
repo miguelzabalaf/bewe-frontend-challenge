@@ -13,6 +13,8 @@ function View(props: LinkFormProps): JSX.Element {
         hasInputError,
         onSubmit,
         handleSubmit,
+        isValidForm,
+        loading,
     } = props;
     return (
         <StyledLinkFormWrapper onSubmit={handleSubmit(onSubmit)}>
@@ -25,6 +27,7 @@ function View(props: LinkFormProps): JSX.Element {
                 hasError={hasInputError("url")}
                 placeholder={"www.example.com"}
                 register={register}
+                disabled={loading}
             />
             <WhiteSpace space={30} />
             <InputField
@@ -35,9 +38,14 @@ function View(props: LinkFormProps): JSX.Element {
                 hasError={hasInputError("name")}
                 placeholder={"example"}
                 register={register}
+                disabled={loading}
             />
             <WhiteSpace space={50} />
-            <Button type={"submit"} onClick={handleSubmit(onSubmit)}>
+            <Button
+                type={"submit"}
+                onClick={handleSubmit(onSubmit)}
+                disabled={loading || !isValidForm}
+            >
                 Add
             </Button>
         </StyledLinkFormWrapper>

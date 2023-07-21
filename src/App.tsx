@@ -7,7 +7,7 @@ import "./common/styles/globals.css";
 
 function App() {
     const { persistor, store } = useStoreConfig();
-    useInterceptor();
+    useInterceptor(store);
     return (
         <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>

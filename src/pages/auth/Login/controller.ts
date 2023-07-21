@@ -9,6 +9,8 @@ import { useLocation } from 'wouter';
 import { useDispatch } from 'react-redux';
 import { UserLogged } from '../../../domain/models/user';
 import { profileActions } from '../../../config/redux/actions/profile';
+import axios from 'axios';
+import { setDefaultToken } from './helpers';
 
 
 function useController(props: LoginProps): LoginControllerOutputProps {
@@ -58,6 +60,7 @@ function useController(props: LoginProps): LoginControllerOutputProps {
     async function onLogin(data: LoginFormProps) {
         try {
             const resp = await login(data);
+            setDefaultToken(resp.token);
             dispatchActions(resp);
         } catch (error) {
             console.log(error);

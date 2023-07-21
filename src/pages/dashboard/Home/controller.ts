@@ -5,11 +5,20 @@ import { linkSchema } from './schemas';
 import { usePromiseTracker } from 'react-promise-tracker';
 import { profileSelectors } from '../../../config/redux/selectors/profile';
 import { useSelector } from 'react-redux';
+import { linkUseCases } from '../../../domain/useCases/link';
+import { linkImplementation } from '../../../domain/implementation/link';
+import { LinkRegistered } from '../../../domain/models/link';
+import { useEffect, useState } from 'react';
+import { DeleteLinkParams } from '../../../domain/reposiories/link';
 
 
 function useController(props: HomeProps): HomeControllerOutputProps {
 
-    const { register, handleSubmit, formState: { errors, isValid: isValidForm } } = useForm<HomeFormProps>({
+    const [linksPath, setLinksPath] = useState<LinkRegistered[]>([]);
+
+    const { addLink, deleteLink, getLinks } = linkUseCases(linkImplementation());
+
+    const { register, handleSubmit, reset, formState: { errors, isValid: isValidForm } } = useForm<HomeFormProps>({
         defaultValues: {
             url: '',
             name: ''
@@ -35,9 +44,41 @@ function useController(props: HomeProps): HomeControllerOutputProps {
         return errors[inputName]?.message || 'This field is required';
     }
 
-    function onSubmit(data: HomeFormProps) {
-        console.log(data);
+    async function onGetLinks() {
+        try {
+            const resp = await getLinks();
+            setLinksPath(resp.data);
+        } catch (error) {
+
+        }
     }
+
+    async function onCreateLink(data: HomeFormProps) {
+        try {
+            await addLink(data);
+            reset();
+            await onGetLinks();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    function onSubmit(data: HomeFormProps) {
+        onCreateLink(data);
+    }
+
+    async function onDeleteLink(params: DeleteLinkParams) {
+        try {
+            await deleteLink({ id: params.id });
+            await onGetLinks();
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+    useEffect(() => {
+        onGetLinks();
+    }, []);
 
     return {
         handleSubmit,
@@ -49,6 +90,8 @@ function useController(props: HomeProps): HomeControllerOutputProps {
         isValidForm,
         loading,
         user,
+        linksPath,
+        onDeleteLink,
         ...props
     };
 }

@@ -1,3 +1,4 @@
+import _ from "lodash";
 import { StyledContentWithPaddingWrapper } from "../../../components/atoms/ContentWithPadding/styledComponents";
 import LinkItem from "../../../components/atoms/LinkItem";
 import WhiteSpace from "../../../components/atoms/WhiteSpace";
@@ -17,6 +18,8 @@ function View(props: HomeControllerOutputProps): JSX.Element {
         isValidForm,
         loading,
         user,
+        linksPath,
+        onDeleteLink,
     } = props;
     return (
         <Screen>
@@ -38,26 +41,15 @@ function View(props: HomeControllerOutputProps): JSX.Element {
                 />
             </StyledContentWithPaddingWrapper>
             <WhiteSpace space={35} />
-            <LinkItem
-                id={1}
-                url="www.google.com"
-                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
-            <LinkItem
-                id={1}
-                url="www.google.com"
-                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
-            <LinkItem
-                id={1}
-                url="www.google.com"
-                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
-            <LinkItem
-                id={1}
-                url="www.google.com"
-                name="Lorem Ipsum is simply dummy text of the printing and typesetting industry."
-            />
+            {_.map(linksPath, (linkPath) => (
+                <LinkItem
+                    onDelete={() => onDeleteLink({ id: linkPath.id })}
+                    key={linkPath.id}
+                    id={linkPath.id}
+                    url={linkPath.url}
+                    name={linkPath.name}
+                />
+            ))}
         </Screen>
     );
 }

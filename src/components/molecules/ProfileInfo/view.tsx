@@ -21,7 +21,7 @@ function View(props: ProfileInfoControllerOutputProps): JSX.Element {
                     </TouchableIcon>
                 </StyledProfileInfoActionEdit>
             )}
-            <Avatar src={image} alt={name} />
+            <Avatar src={image} />
             <WhiteSpace space={12} />
             <Typography
                 size={TypographySize.H2}

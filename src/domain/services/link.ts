@@ -4,7 +4,7 @@ import { endpoints } from "../constants/endpoints";
 import { trackPromise } from "react-promise-tracker";
 
 export function addLinkService(params: AddLinkParams) {
-    const request = axios.post(endpoints.links.add, { data: { ...params } });
+    const request = axios.post(endpoints.links.add, { ...params });
     return trackPromise(request);
 }
 
@@ -14,6 +14,6 @@ export function getLinksService() {
 }
 
 export function deleteLinkService(params: DeleteLinkParams) {
-    const request = axios.delete(endpoints.links.delete, { data: { ...params } });
+    const request = axios.delete(endpoints.links.delete, { params });
     return trackPromise(request);
 }

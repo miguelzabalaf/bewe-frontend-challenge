@@ -1,8 +1,14 @@
+import { EnhancedStore } from "@reduxjs/toolkit";
 import axios, { AxiosResponse, InternalAxiosRequestConfig } from "axios";
 import { useEffect } from "react";
+import { StoreState } from "../../redux/controllers/useStoreConfig";
+import { profileActions } from "../../redux/actions/profile";
 
-export function useInterceptor() {
+export function useInterceptor(store: EnhancedStore<StoreState>) {
+    const { profile } = store.getState();
+    const { onChangeToken } = profileActions();
     function handleRequestSuccess(request: any): InternalAxiosRequestConfig {
+        if (profile.auth.token) request.headers['Authorization'] = `Bearer ${ profile.auth.token }`;
         request.headers = {
             ...request.headers,
             'Content-Type': 'application/json',
@@ -21,6 +27,9 @@ export function useInterceptor() {
     }
 
     function handleResponseError(error: any) {
+        if (error.response.status === 403) {
+            store.dispatch(onChangeToken(''));
+        }
         throw error;
     }
 
@@ -30,4 +39,4 @@ export function useInterceptor() {
         axios.interceptors.request.use(handleRequestSuccess, handleRequestError);
         axios.interceptors.response.use(handleResponseSuccess, handleResponseError);
     }, []);
-}
+};

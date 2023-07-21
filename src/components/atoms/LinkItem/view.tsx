@@ -13,12 +13,12 @@ import {
 import { LinkItemControllerOutputProps } from "./types";
 
 function View(props: LinkItemControllerOutputProps): JSX.Element {
-    const { name, url } = props;
+    const { name, url, onDelete } = props;
     return (
         <StyledLinkItemWrapper>
             <StyledLinkItemHeader>
                 <StyledLinkItemHeaderUrl>
-                    <Link href={url} target="_black">
+                    <Link href={url ?? ""} target="_black">
                         <Typography
                             size={TypographySize.MEDIUM}
                             weight={TypographyWeight.MEDIUM}
@@ -28,7 +28,7 @@ function View(props: LinkItemControllerOutputProps): JSX.Element {
                         </Typography>
                     </Link>
                 </StyledLinkItemHeaderUrl>
-                <TouchableIcon>
+                <TouchableIcon onClick={onDelete}>
                     <Icon.IconTrash />
                 </TouchableIcon>
             </StyledLinkItemHeader>
