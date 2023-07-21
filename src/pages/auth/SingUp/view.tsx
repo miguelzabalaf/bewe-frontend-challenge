@@ -1,5 +1,4 @@
 import AuthHero from "../../../components/molecules/AuthHero";
-import LoginForm from "../../../components/molecules/LoginForm";
 import SingUpForm from "../../../components/molecules/SingUpForm";
 import Screen from "../../../components/organisms/Screen";
 import { SingUpControllerOutputProps } from "./types";
