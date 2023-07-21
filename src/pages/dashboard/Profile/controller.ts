@@ -4,16 +4,21 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { profileSchema } from './schemas';
 import { useLocation } from 'wouter';
 import { usePromiseTracker } from 'react-promise-tracker';
+import { profileSelectors } from '../../../config/redux/selectors/profile';
+import { useSelector } from 'react-redux';
 
 
 function useController(props: ProfileProps): ProfileControllerOutputProps {
 
     const [, setLocation] = useLocation();
 
+    const { getUser } = profileSelectors();
+    const user = useSelector(getUser());
+
     const { register, handleSubmit, formState: { errors, isValid: isValidForm } } = useForm<ProfileFormProps>({
         defaultValues: {
-            name: '',
-            email: '',
+            name: user.name,
+            email: user.email,
             location: ''
         },
         resolver: yupResolver(profileSchema) as any,

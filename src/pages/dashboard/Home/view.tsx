@@ -16,13 +16,15 @@ function View(props: HomeControllerOutputProps): JSX.Element {
         handleSubmit,
         isValidForm,
         loading,
+        user,
     } = props;
     return (
         <Screen>
             <StyledContentWithPaddingWrapper>
                 <ProfileInfo
-                    name={"Miguel Zabala"}
-                    email={"zabalafmiguel@hotmail.com"}
+                    name={user.name}
+                    email={user.email}
+                    image={user.image}
                 />
                 <LinkForm
                     loading={loading}

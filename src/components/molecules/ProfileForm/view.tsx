@@ -25,6 +25,7 @@ function View(props: ProfileFormProps): JSX.Element {
                 hasError={hasInputError("name")}
                 placeholder={""}
                 register={register}
+                disabled
             />
             <WhiteSpace space={30} />
             <InputField
@@ -35,6 +36,7 @@ function View(props: ProfileFormProps): JSX.Element {
                 hasError={hasInputError("email")}
                 placeholder={""}
                 register={register}
+                disabled
             />
             <WhiteSpace space={30} />
             <InputField

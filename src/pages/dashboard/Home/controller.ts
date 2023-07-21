@@ -3,6 +3,8 @@ import { HomeControllerOutputProps, HomeFormKeys, HomeFormProps, HomeProps } fro
 import { yupResolver } from '@hookform/resolvers/yup';
 import { linkSchema } from './schemas';
 import { usePromiseTracker } from 'react-promise-tracker';
+import { profileSelectors } from '../../../config/redux/selectors/profile';
+import { useSelector } from 'react-redux';
 
 
 function useController(props: HomeProps): HomeControllerOutputProps {
@@ -17,6 +19,9 @@ function useController(props: HomeProps): HomeControllerOutputProps {
     });
 
     const { promiseInProgress: loading } = usePromiseTracker();
+
+    const { getUser } = profileSelectors();
+    const user = useSelector(getUser());
 
     function hasInputError(inputName: HomeFormKeys) {
         return errors[inputName] !== undefined;
@@ -43,6 +48,7 @@ function useController(props: HomeProps): HomeControllerOutputProps {
         getInputErrorMessage,
         isValidForm,
         loading,
+        user,
         ...props
     };
 }

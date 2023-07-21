@@ -21,6 +21,7 @@ export const StyledInputFieldComponent = styled.input`
     font-size: 16px;
     color: ${ colors.text };
     border: 1px solid ${ colors.border };
+    border-radius: 7px;
     padding: 16px;
     color: ${ colors.title };
     font-weight: 600;

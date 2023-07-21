@@ -1,5 +1,6 @@
 import { FormProps } from '../../../common/types';
 import { AnySchema } from "yup";
+import { User } from '../../../domain/entities/user';
 
 export interface HomeProps {
 
@@ -17,4 +18,5 @@ export type HomeFormValidatorShapeKeys = {
 };
 
 export interface HomeControllerOutputProps extends HomeProps, FormProps {
+    user: User;
 }

@@ -9,8 +9,13 @@ import {
 import { HeaderControllerOutputProps } from "./types";
 
 function View(props: HeaderControllerOutputProps): JSX.Element {
-    const { isAuthenticated, handleAction, isLoginPage, ...HeaderProps } =
-        props;
+    const {
+        isAuthenticated,
+        handleAction,
+        isLoginPage,
+        getButtonText,
+        ...HeaderProps
+    } = props;
     return (
         <StyledHeaderWrapper {...HeaderProps}>
             <StyledHeaderLogoWrapper>
@@ -22,7 +27,7 @@ function View(props: HeaderControllerOutputProps): JSX.Element {
                     size={ButtonSize.SMALL}
                     variant={ButtonVariant.OUTLINE}
                 >
-                    {isLoginPage ? "Sign Up" : "Login"}
+                    {getButtonText()}
                 </Button>
             </StyledHeaderActionWrapper>
         </StyledHeaderWrapper>
