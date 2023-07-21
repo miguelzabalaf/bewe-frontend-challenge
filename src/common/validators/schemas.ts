@@ -1,6 +1,9 @@
 import * as Yup from 'yup';
 import { hasValidEmail } from './regExp';
 
+export const stringSchema: Yup.StringSchema = Yup.string()
+    .trim();
+
 export const stringRequiredSchema: Yup.StringSchema = Yup.string()
     .trim()
     .required('This field is required');

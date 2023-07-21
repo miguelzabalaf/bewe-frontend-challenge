@@ -13,5 +13,5 @@ export const StyledScreenWrapper = styled.div`
 export const StyledScreenContentWrapper = styled.div`
     overflow-y: scroll;
     height: 100%;
-    padding: 36px;
+    padding: 16px 36px 36px;
 `;
