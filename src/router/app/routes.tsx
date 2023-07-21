@@ -2,6 +2,7 @@ import { ComponentType } from "react";
 import { authPath } from "../../domain/constants/endpoints";
 import { ExampleScreen } from "../../pages/example";
 import { DefaultParams, RouteComponentProps } from "wouter";
+import Login from "../../pages/auth/login";
 
 interface Route {
     path: string;
@@ -12,7 +13,7 @@ interface Route {
 export const routes: Route[] = [
     {
         path: `${authPath}/login`,
-        component: ExampleScreen,
+        component: Login,
         isPrivate: false,
     },
     {

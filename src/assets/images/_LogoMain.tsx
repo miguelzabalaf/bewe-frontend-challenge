@@ -8,7 +8,7 @@ function LogoMain(): JSX.Element {
             viewBox="0 0 102.186 90"
         >
             <defs>
-                <clipPath id="clip-path">
+                <clipPath id="clipPath">
                     <rect
                         id="Rectángulo_877"
                         data-name="Rectángulo 877"
@@ -17,31 +17,27 @@ function LogoMain(): JSX.Element {
                     />
                 </clipPath>
             </defs>
-            <g
-                id="Grupo_3593"
-                data-name="Grupo 3593"
-                clip-path="url(#clip-path)"
-            >
+            <g id="Grupo_3593" data-name="Grupo 3593" clipPath="url(#clipPath)">
                 <text
                     id="TWOPEAKS"
                     transform="translate(0.425 84.809)"
-                    font-size="11"
-                    font-family="MuseoSansRounded-900, 'Museo Sans Rounded \39 00'"
-                    font-weight="900"
+                    fontSize="11"
+                    fontFamily="MuseoSansRounded-900, 'Museo Sans Rounded \39 00'"
+                    fontWeight="900"
                 >
-                    <tspan x="0" y="0" letter-spacing="0.32em">
+                    <tspan x="0" y="0" letterSpacing="0.32em">
                         T
                     </tspan>
-                    <tspan y="0" letter-spacing="0.306em">
+                    <tspan y="0" letterSpacing="0.306em">
                         W
                     </tspan>
-                    <tspan y="0" letter-spacing="0.32em">
+                    <tspan y="0" letterSpacing="0.32em">
                         O
                     </tspan>
-                    <tspan y="0" letter-spacing="0.319em">
+                    <tspan y="0" letterSpacing="0.319em">
                         P
                     </tspan>
-                    <tspan y="0" letter-spacing="0.32em">
+                    <tspan y="0" letterSpacing="0.32em">
                         EAK
                     </tspan>
                     <tspan y="0">S</tspan>

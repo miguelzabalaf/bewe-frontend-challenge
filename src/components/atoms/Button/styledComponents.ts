@@ -11,7 +11,6 @@ export const StyledButtonWrapper = styled.button<ButtonControllerOutputProps>`
     color: ${ ({ variant }) => variant === ButtonVariant.OUTLINE ? colors.primary : colors.white };
     font-size: ${ ({ size }) => size === ButtonSize.SMALL ? '10px' : '18px' };
     font-weight: ${ ({ size }) => size === ButtonSize.SMALL ? '700' : '500' };
-    text-transform: uppercase;
     user-select: none;
     transition: opacity 0.2s ease-in-out;
     cursor: pointer;
