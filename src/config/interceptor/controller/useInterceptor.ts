@@ -6,7 +6,7 @@ import { profileActions } from "../../redux/actions/profile";
 
 export function useInterceptor(store: EnhancedStore<StoreState>) {
     const { profile } = store.getState();
-    const { onChangeToken } = profileActions();
+    const { logout } = profileActions();
     function handleRequestSuccess(request: any): InternalAxiosRequestConfig {
         if (profile.auth.token) request.headers['Authorization'] = `Bearer ${ profile.auth.token }`;
         request.headers = {
@@ -28,7 +28,7 @@ export function useInterceptor(store: EnhancedStore<StoreState>) {
 
     function handleResponseError(error: any) {
         if (error.response.status === 403) {
-            store.dispatch(onChangeToken(''));
+            store.dispatch(logout());
         }
         throw error;
     }

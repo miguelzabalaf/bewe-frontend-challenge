@@ -1,3 +1,4 @@
+import { dic } from "../../../common/constants/dictionary";
 import ContentWithPadding from "../../../components/atoms/ContentWithPadding";
 import AuthHero from "../../../components/molecules/AuthHero";
 import LoginForm from "../../../components/molecules/LoginForm";
@@ -18,7 +19,7 @@ function View(props: LoginControllerOutputProps): JSX.Element {
     return (
         <Screen>
             <ContentWithPadding>
-                <AuthHero title={"Login"} />
+                <AuthHero title={dic.title.login} />
                 <LoginForm
                     loading={loading}
                     isValidForm={isValidForm}

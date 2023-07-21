@@ -15,6 +15,12 @@ export function profileActions() {
                 type: types.CHANGE_TOKEN,
                 payload
             };
+        },
+        logout: function (): PayloadAction<undefined> {
+            return {
+                type: types.LOGOUT,
+                payload: undefined
+            };
         }
     };
 }

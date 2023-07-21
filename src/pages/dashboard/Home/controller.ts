@@ -10,6 +10,8 @@ import { linkImplementation } from '../../../domain/implementation/link';
 import { LinkRegistered } from '../../../domain/models/link';
 import { useEffect, useState } from 'react';
 import { DeleteLinkParams } from '../../../domain/reposiories/link';
+import toast from 'react-hot-toast';
+import { dic } from '../../../common/constants/dictionary';
 
 
 function useController(props: HomeProps): HomeControllerOutputProps {
@@ -41,7 +43,7 @@ function useController(props: HomeProps): HomeControllerOutputProps {
     }
 
     function getInputErrorMessage(inputName: HomeFormKeys) {
-        return errors[inputName]?.message || 'This field is required';
+        return errors[inputName]?.message || dic.form.fieldRequired;
     }
 
     async function onGetLinks() {
@@ -49,7 +51,9 @@ function useController(props: HomeProps): HomeControllerOutputProps {
             const resp = await getLinks();
             setLinksPath(resp.data);
         } catch (error) {
-
+            toast.error(dic.toast.errorHappened, {
+                duration: 5000,
+            });
         }
     }
 
@@ -73,6 +77,9 @@ function useController(props: HomeProps): HomeControllerOutputProps {
             await onGetLinks();
         } catch (error) {
             console.log(error);
+            toast.error(dic.toast.errorHappened, {
+                duration: 5000,
+            });
         }
     }
 

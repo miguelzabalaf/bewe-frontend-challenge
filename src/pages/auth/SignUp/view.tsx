@@ -1,3 +1,4 @@
+import { dic } from "../../../common/constants/dictionary";
 import { StyledContentWithPaddingWrapper } from "../../../components/atoms/ContentWithPadding/styledComponents";
 import AuthHero from "../../../components/molecules/AuthHero";
 import SingUpForm from "../../../components/molecules/SingUpForm";
@@ -18,7 +19,7 @@ function View(props: SignUpControllerOutputProps): JSX.Element {
     return (
         <Screen>
             <StyledContentWithPaddingWrapper>
-                <AuthHero title={"Sing Up"} />
+                <AuthHero title={dic.title.signUp} />
                 <SingUpForm
                     loading={loading}
                     isValidForm={isValidForm}

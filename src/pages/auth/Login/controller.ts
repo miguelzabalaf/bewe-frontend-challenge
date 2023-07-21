@@ -9,8 +9,9 @@ import { useLocation } from 'wouter';
 import { useDispatch } from 'react-redux';
 import { UserLogged } from '../../../domain/models/user';
 import { profileActions } from '../../../config/redux/actions/profile';
-import axios from 'axios';
 import { setDefaultToken } from './helpers';
+import toast from 'react-hot-toast';
+import { dic } from '../../../common/constants/dictionary';
 
 
 function useController(props: LoginProps): LoginControllerOutputProps {
@@ -43,7 +44,7 @@ function useController(props: LoginProps): LoginControllerOutputProps {
     }
 
     function getInputErrorMessage(inputName: LoginFormKeys) {
-        return errors[inputName]?.message || 'This field is required';
+        return errors[inputName]?.message || dic.form.fieldRequired;
     }
 
     function onLoginSuccess() {
@@ -60,10 +61,17 @@ function useController(props: LoginProps): LoginControllerOutputProps {
     async function onLogin(data: LoginFormProps) {
         try {
             const resp = await login(data);
+            toast(resp.message, {
+                duration: 3000,
+                icon: '💡'
+            });
             setDefaultToken(resp.token);
             dispatchActions(resp);
         } catch (error) {
             console.log(error);
+            toast.error(dic.toast.errorHappened, {
+                duration: 5000,
+            });
         }
     }
 

@@ -1,3 +1,4 @@
+import { dic } from "../../../common/constants/dictionary";
 import Button from "../../atoms/Button";
 import InputField from "../../atoms/InputField";
 import { InputFieldTypes } from "../../atoms/InputField/types";
@@ -18,7 +19,7 @@ function View(props: ProfileFormProps): JSX.Element {
         <StyledLoginFormWrapper onSubmit={handleSubmit(onSubmit)}>
             <WhiteSpace space={40} />
             <InputField
-                label={"Name"}
+                label={dic.form.nameLabel}
                 type={InputFieldTypes.TEXT}
                 name={assignInputName("name")}
                 errorMessage={getInputErrorMessage("name")}
@@ -29,7 +30,7 @@ function View(props: ProfileFormProps): JSX.Element {
             />
             <WhiteSpace space={30} />
             <InputField
-                label={"Email"}
+                label={dic.form.email}
                 type={InputFieldTypes.EMAIL}
                 name={assignInputName("email")}
                 errorMessage={getInputErrorMessage("email")}
@@ -40,7 +41,7 @@ function View(props: ProfileFormProps): JSX.Element {
             />
             <WhiteSpace space={30} />
             <InputField
-                label={"Location"}
+                label={dic.form.locationLabel}
                 type={InputFieldTypes.TEXT}
                 name={assignInputName("location")}
                 errorMessage={getInputErrorMessage("location")}
@@ -50,7 +51,7 @@ function View(props: ProfileFormProps): JSX.Element {
             />
             <WhiteSpace space={50} />
             <Button type={"submit"} onClick={handleSubmit(onSubmit)}>
-                Save
+                {dic.form.save}
             </Button>
         </StyledLoginFormWrapper>
     );

@@ -1,3 +1,4 @@
+import { dic } from "../../../common/constants/dictionary";
 import ContentWithPadding from "../../../components/atoms/ContentWithPadding";
 import WhiteSpace from "../../../components/atoms/WhiteSpace";
 import NavTop from "../../../components/molecules/NavTop";
@@ -17,13 +18,14 @@ function View(props: ProfileControllerOutputProps): JSX.Element {
         handleGoHome,
         isValidForm,
         loading,
+        user,
     } = props;
     return (
         <Screen>
             <ContentWithPadding>
-                <NavTop title={"Profile"} handleGoBack={handleGoHome} />
+                <NavTop title={dic.title.profile} handleGoBack={handleGoHome} />
                 <WhiteSpace space={40} />
-                <ProfileInfo name={"Miguel Zabala"} hideEditAction />
+                <ProfileInfo name={user.name} hideEditAction />
                 <ProfileForm
                     loading={loading}
                     isValidForm={isValidForm}

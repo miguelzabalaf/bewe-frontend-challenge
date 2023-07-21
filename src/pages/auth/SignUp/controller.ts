@@ -7,6 +7,8 @@ import { userUseCases } from '../../../domain/useCases/user';
 import { userImplementation } from '../../../domain/implementation/user';
 import { useLocation } from 'wouter';
 import { authPath } from '../../../domain/constants/endpoints';
+import toast from 'react-hot-toast';
+import { dic } from '../../../common/constants/dictionary';
 
 
 function useController(props: SignUpProps): SignUpControllerOutputProps {
@@ -36,11 +38,14 @@ function useController(props: SignUpProps): SignUpControllerOutputProps {
     }
 
     function getInputErrorMessage(inputName: SignUpFormKeys) {
-        return errors[inputName]?.message || 'This field is required';
+        return errors[inputName]?.message || dic.form.fieldRequired;
     }
 
     function onSignUpSuccess() {
         setLocation(`${ authPath }/login`);
+        toast.success(dic.toast.accountCreated, {
+            duration: 5000,
+        });
     }
 
     async function onSignUp(data: SignUpFormProps) {
@@ -49,6 +54,9 @@ function useController(props: SignUpProps): SignUpControllerOutputProps {
             onSignUpSuccess();
         } catch (error) {
             console.log(error);
+            toast.error(dic.toast.errorHappened, {
+                duration: 5000,
+            });
         }
 
     }

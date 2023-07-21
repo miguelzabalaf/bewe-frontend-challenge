@@ -1,3 +1,4 @@
+import { dic } from "../../../common/constants/dictionary";
 import Button from "../../atoms/Button";
 import InputField from "../../atoms/InputField";
 import { InputFieldTypes } from "../../atoms/InputField/types";
@@ -20,23 +21,23 @@ function View(props: LinkFormProps): JSX.Element {
         <StyledLinkFormWrapper onSubmit={handleSubmit(onSubmit)}>
             <WhiteSpace space={40} />
             <InputField
-                label={"Url to save"}
+                label={dic.form.urlLabel}
                 type={InputFieldTypes.TEXT}
                 name={assignInputName("url")}
                 errorMessage={getInputErrorMessage("url")}
                 hasError={hasInputError("url")}
-                placeholder={"www.example.com"}
+                placeholder={""}
                 register={register}
                 disabled={loading}
             />
             <WhiteSpace space={30} />
             <InputField
-                label={"Name of url"}
+                label={dic.form.urlNameLabel}
                 type={InputFieldTypes.TEXT}
                 name={assignInputName("name")}
                 errorMessage={getInputErrorMessage("name")}
                 hasError={hasInputError("name")}
-                placeholder={"example"}
+                placeholder={""}
                 register={register}
                 disabled={loading}
             />
@@ -46,7 +47,7 @@ function View(props: LinkFormProps): JSX.Element {
                 onClick={handleSubmit(onSubmit)}
                 disabled={loading || !isValidForm}
             >
-                Add
+                {dic.form.add}
             </Button>
         </StyledLinkFormWrapper>
     );

@@ -1,3 +1,4 @@
+import { dic } from "../../../common/constants/dictionary";
 import Button from "../../atoms/Button";
 import InputField from "../../atoms/InputField";
 import { InputFieldTypes } from "../../atoms/InputField/types";
@@ -20,34 +21,34 @@ function View(props: SingUpFormProps): JSX.Element {
         <StyledLoginFormWrapper onSubmit={handleSubmit(onSubmit)}>
             <WhiteSpace space={40} />
             <InputField
-                label={"Full name"}
+                label={dic.form.fullNameLabel}
                 type={InputFieldTypes.TEXT}
                 name={assignInputName("name")}
                 errorMessage={getInputErrorMessage("name")}
                 hasError={hasInputError("name")}
-                placeholder={"Jeff Brown Example"}
+                placeholder={""}
                 register={register}
                 disabled={loading}
             />
             <WhiteSpace space={30} />
             <InputField
-                label={"Your Email"}
+                label={dic.form.emailLabel}
                 type={InputFieldTypes.EMAIL}
                 name={assignInputName("email")}
                 errorMessage={getInputErrorMessage("email")}
                 hasError={hasInputError("email")}
-                placeholder={"jeff.brown@example.com"}
+                placeholder={""}
                 register={register}
                 disabled={loading}
             />
             <WhiteSpace space={30} />
             <InputField
-                label={"Password"}
+                label={dic.form.passwordLabel}
                 type={InputFieldTypes.PASSWORD}
                 name={assignInputName("password")}
                 errorMessage={getInputErrorMessage("password")}
                 hasError={hasInputError("password")}
-                placeholder={"******"}
+                placeholder={""}
                 register={register}
                 disabled={loading}
             />
@@ -57,7 +58,7 @@ function View(props: SingUpFormProps): JSX.Element {
                 onClick={handleSubmit(onSubmit)}
                 disabled={loading || !isValidForm}
             >
-                Sing Up
+                {dic.form.signUp}
             </Button>
         </StyledLoginFormWrapper>
     );

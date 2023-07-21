@@ -6,6 +6,7 @@ import { useLocation } from 'wouter';
 import { usePromiseTracker } from 'react-promise-tracker';
 import { profileSelectors } from '../../../config/redux/selectors/profile';
 import { useSelector } from 'react-redux';
+import { dic } from '../../../common/constants/dictionary';
 
 
 function useController(props: ProfileProps): ProfileControllerOutputProps {
@@ -36,7 +37,7 @@ function useController(props: ProfileProps): ProfileControllerOutputProps {
     }
 
     function getInputErrorMessage(inputName: ProfileFormKeys) {
-        return errors[inputName]?.message || 'This field is required';
+        return errors[inputName]?.message || dic.form.fieldRequired;
     }
 
     function onSubmit(data: ProfileFormProps) {
@@ -57,6 +58,7 @@ function useController(props: ProfileProps): ProfileControllerOutputProps {
         handleGoHome,
         isValidForm,
         loading,
+        user,
         ...props
     };
 }

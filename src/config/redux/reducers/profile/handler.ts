@@ -1,6 +1,6 @@
 import types from "./constants";
 import { User } from "../../../../domain/entities/user";
-import { UserInitialState } from "./initialState";
+import { UserInitialState, initialState } from './initialState';
 import { PayloadAction } from '@reduxjs/toolkit';
 
 export const handler = {
@@ -18,6 +18,11 @@ export const handler = {
             auth: {
                 token,
             }
+        };
+    },
+    [types.LOGOUT](): UserInitialState {
+        return {
+            ...initialState
         };
     }
 };

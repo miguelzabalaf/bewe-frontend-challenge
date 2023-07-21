@@ -15,7 +15,7 @@ function useController(props: HeaderProps): HeaderControllerOutputProps {
 
     const dipatch = useDispatch();
 
-    const { onChangeToken } = profileActions();
+    const { logout } = profileActions();
 
     function onLogin() {
         setLocation(`${ authPath }/login`);
@@ -26,7 +26,7 @@ function useController(props: HeaderProps): HeaderControllerOutputProps {
     }
 
     function onLogout() {
-        dipatch(onChangeToken(''));
+        dipatch(logout());
     }
 
     const isLoginPage = useMemo(() => {

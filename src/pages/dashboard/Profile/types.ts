@@ -1,5 +1,6 @@
 import { FormProps } from '../../../common/types';
 import { AnySchema } from "yup";
+import { User } from '../../../domain/entities/user';
 
 export interface ProfileProps {
 
@@ -22,4 +23,5 @@ export interface ProfileControllerMethods {
 }
 
 export interface ProfileControllerOutputProps extends ProfileProps, FormProps, ProfileControllerMethods {
+    user: User;
 }
