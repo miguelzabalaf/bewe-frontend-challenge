@@ -12,7 +12,7 @@ export function useInterceptor(store: EnhancedStore<StoreState>) {
         request.headers = {
             ...request.headers,
             'Content-Type': 'application/json',
-            'Accept': 'application/json',
+            'Accept': 'application/json, text/plain, */*',
             'Access-Control-Allow-Headers': 'Content-Type',
             'Access-Control-Allow-Origin': '*',
         };
