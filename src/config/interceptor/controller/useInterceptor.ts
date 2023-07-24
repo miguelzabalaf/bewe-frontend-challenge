@@ -14,6 +14,7 @@ export function useInterceptor(store: EnhancedStore<StoreState>) {
             'Content-Type': 'application/json',
             'Accept': 'application/json',
             'Access-Control-Allow-Headers': 'Content-Type',
+            'Access-Control-Allow-Origin': '*',
         };
         return request;
     }
